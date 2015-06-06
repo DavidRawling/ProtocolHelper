@@ -1,5 +1,4 @@
 # Protocol Helper
-A helper application to allow creation and processing of URLs using custom protocols
 [![Build status](https://ci.appveyor.com/api/projects/status/54x4y0jktr9nfr74?svg=true)](https://ci.appveyor.com/project/DavidRawling/protocolhelper)
 
 Have you ever wanted to define a link on a webpage to open a specific, different browser? Perhaps you have a corporate application that only supports Firefox (or Chrome) but your main application set works only in IE.
