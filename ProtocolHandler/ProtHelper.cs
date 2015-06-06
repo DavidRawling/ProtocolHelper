@@ -65,5 +65,12 @@ namespace ProtocolHandler
             ProcessingComplete = true;
             Application.Exit();
         }
+
+        private void ShowProtsButton_Click(object sender, EventArgs e)
+        {
+            DefinedProtocols DPView = new DefinedProtocols();
+            DPView.ShowDialog();
+        }
+
     }
 }

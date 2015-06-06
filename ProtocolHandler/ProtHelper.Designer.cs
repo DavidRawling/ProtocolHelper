@@ -31,7 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProtHelper));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.QuitButton = new System.Windows.Forms.Button();
+            this.ShowProtsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -55,25 +56,37 @@
             this.label2.TabIndex = 1;
             this.label2.Text = resources.GetString("label2.Text");
             // 
-            // button1
+            // QuitButton
             // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(533, 340);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 54);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Quit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.QuitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.QuitButton.Location = new System.Drawing.Point(533, 340);
+            this.QuitButton.Name = "QuitButton";
+            this.QuitButton.Size = new System.Drawing.Size(137, 54);
+            this.QuitButton.TabIndex = 2;
+            this.QuitButton.Text = "Quit";
+            this.QuitButton.UseVisualStyleBackColor = true;
+            this.QuitButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // ShowProtsButton
+            // 
+            this.ShowProtsButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.ShowProtsButton.Location = new System.Drawing.Point(533, 280);
+            this.ShowProtsButton.Name = "ShowProtsButton";
+            this.ShowProtsButton.Size = new System.Drawing.Size(137, 54);
+            this.ShowProtsButton.TabIndex = 3;
+            this.ShowProtsButton.Text = "Show Configuration";
+            this.ShowProtsButton.UseVisualStyleBackColor = true;
+            this.ShowProtsButton.Click += new System.EventHandler(this.ShowProtsButton_Click);
             // 
             // ProtHelper
             // 
-            this.AcceptButton = this.button1;
+            this.AcceptButton = this.QuitButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.button1;
+            this.CancelButton = this.QuitButton;
             this.ClientSize = new System.Drawing.Size(682, 406);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ShowProtsButton);
+            this.Controls.Add(this.QuitButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -93,6 +106,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button QuitButton;
+        private System.Windows.Forms.Button ShowProtsButton;
     }
 }
