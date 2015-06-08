@@ -13,25 +13,22 @@ namespace ProtocolHandler
         {
             try
             {
-                String oldProtocol = originalURI.Substring(0, originalURI.IndexOf(":"));
-                System.Collections.Specialized.StringCollection ConfigList = Properties.Settings.Default.Apps;
+                String oldProtocol = originalURI.Substring(0, originalURI.IndexOf(":")).ToLower();
+                string Remainder = originalURI.Substring(originalURI.IndexOf(":"), originalURI.Length - originalURI.IndexOf(":"));
 
-                foreach (String Config in ConfigList)
+                Handler H = Configurator.GetHandler(oldProtocol);
+                if (H == null)
                 {
-                    if (Config.ToUpper().StartsWith(oldProtocol.ToUpper() + "="))
-                    {
-                        string[] AppData = (Config.Split('='))[1].Split(',');
-                        string App = AppData[0];
-                        string newProtocol = AppData[1];
-                        string newURI = newProtocol + originalURI.Substring(originalURI.IndexOf(":"), originalURI.Length - originalURI.IndexOf(":"));
+                    return false;
+                }
+                else
+                {
+                    Process p = new Process();
+                    p.StartInfo.FileName = H.Application;
+                    p.StartInfo.Arguments = H.Protocol + Remainder;
+                    p.Start();
 
-                        Process p = new Process();
-                        p.StartInfo.FileName = App;
-                        p.StartInfo.Arguments = newURI;
-                        p.Start();
-
-                        return true;
-                    }
+                    return true;
                 }
             }
             catch (Exception E)
@@ -57,10 +54,9 @@ namespace ProtocolHandler
             {
                 ProcessingComplete = true;
             }
-
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void QuitButton_Click(object sender, EventArgs e)
         {
             ProcessingComplete = true;
             Application.Exit();

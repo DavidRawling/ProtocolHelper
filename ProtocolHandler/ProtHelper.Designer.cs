@@ -65,7 +65,7 @@
             this.QuitButton.TabIndex = 2;
             this.QuitButton.Text = "Quit";
             this.QuitButton.UseVisualStyleBackColor = true;
-            this.QuitButton.Click += new System.EventHandler(this.button1_Click);
+            this.QuitButton.Click += new System.EventHandler(this.QuitButton_Click);
             // 
             // ShowProtsButton
             // 

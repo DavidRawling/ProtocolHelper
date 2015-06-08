@@ -28,15 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Custom",
-            "C:\\Program Files\\Program.exe",
-            "https"}, -1);
             this.CloseButton = new System.Windows.Forms.Button();
-            this.ProtocolList = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ProtocolDGV = new System.Windows.Forms.DataGridView();
+            this.CustomProtocol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Application = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RealProtocol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.ProtocolDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // CloseButton
@@ -50,41 +47,42 @@
             this.CloseButton.TabIndex = 0;
             this.CloseButton.Text = "Close";
             this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
-            // ProtocolList
+            // ProtocolDGV
             // 
-            this.ProtocolList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.ProtocolList.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ProtocolList.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProtocolList.GridLines = true;
-            this.ProtocolList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
-            this.ProtocolList.Location = new System.Drawing.Point(0, 0);
-            this.ProtocolList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ProtocolList.Name = "ProtocolList";
-            this.ProtocolList.ShowGroups = false;
-            this.ProtocolList.Size = new System.Drawing.Size(705, 310);
-            this.ProtocolList.TabIndex = 1;
-            this.ProtocolList.UseCompatibleStateImageBehavior = false;
-            this.ProtocolList.View = System.Windows.Forms.View.Details;
+            this.ProtocolDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ProtocolDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CustomProtocol,
+            this.Application,
+            this.RealProtocol});
+            this.ProtocolDGV.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ProtocolDGV.Location = new System.Drawing.Point(0, 0);
+            this.ProtocolDGV.MultiSelect = false;
+            this.ProtocolDGV.Name = "ProtocolDGV";
+            this.ProtocolDGV.Size = new System.Drawing.Size(705, 300);
+            this.ProtocolDGV.TabIndex = 1;
             // 
-            // columnHeader1
+            // Name
             // 
-            this.columnHeader1.Text = "Custom Protocol";
-            this.columnHeader1.Width = 140;
+            this.CustomProtocol.DataPropertyName = "Name";
+            this.CustomProtocol.HeaderText = "Custom Protocol";
+            this.CustomProtocol.Name = "Name";
+            this.CustomProtocol.Width = 140;
             // 
-            // columnHeader2
+            // Application
             // 
-            this.columnHeader2.Text = "Application Path";
-            this.columnHeader2.Width = 390;
+            this.Application.DataPropertyName = "Application";
+            this.Application.HeaderText = "Application Path";
+            this.Application.Name = "Application";
+            this.Application.Width = 300;
             // 
-            // columnHeader3
+            // Protocol
             // 
-            this.columnHeader3.Text = "Real Protocol";
-            this.columnHeader3.Width = 140;
+            this.RealProtocol.DataPropertyName = "Protocol";
+            this.RealProtocol.HeaderText = "Real Protocol";
+            this.RealProtocol.Name = "Protocol";
+            this.RealProtocol.Width = 140;
             // 
             // DefinedProtocols
             // 
@@ -93,7 +91,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.CloseButton;
             this.ClientSize = new System.Drawing.Size(705, 380);
-            this.Controls.Add(this.ProtocolList);
+            this.Controls.Add(this.ProtocolDGV);
             this.Controls.Add(this.CloseButton);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -104,6 +102,7 @@
             this.ShowInTaskbar = false;
             this.Text = "Defined Protocols";
             this.Shown += new System.EventHandler(this.DefinedProtocols_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.ProtocolDGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -111,9 +110,9 @@
         #endregion
 
         private System.Windows.Forms.Button CloseButton;
-        private System.Windows.Forms.ListView ProtocolList;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.DataGridView ProtocolDGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomProtocol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Application;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RealProtocol;
     }
 }

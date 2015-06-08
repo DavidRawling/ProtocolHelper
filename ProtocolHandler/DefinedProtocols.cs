@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Configuration;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -10,6 +13,8 @@ namespace ProtocolHandler
 {
     public partial class DefinedProtocols : Form
     {
+        BindingList<Handler> Handlers;
+
         public DefinedProtocols()
         {
             InitializeComponent();
@@ -17,20 +22,21 @@ namespace ProtocolHandler
 
         private void DefinedProtocols_Shown(object sender, EventArgs e)
         {
-            ProtocolList.Items.Clear();
+            HandlerSet HC = Configurator.GetAllHandlers();
+            Handlers = new BindingList<Handler>();
 
-            foreach (var Config in Properties.Settings.Default.Apps)
-            {
-                string oldProtocol = (Config.Split('='))[0];
-                string[] AppData = (Config.Split('='))[1].Split(',');
-                string App = AppData[0];
-                string newProtocol = AppData[1];
+            foreach (Handler H in HC)
+                Handlers.Add(H);
 
-                ListViewItem LVI = new ListViewItem(oldProtocol);
-                LVI.SubItems.Add(App);
-                LVI.SubItems.Add(newProtocol);
-                ProtocolList.Items.Add(LVI);
-            }
+            ProtocolDGV.DataSource = Handlers;
+
+            for (int i = 3; i < ProtocolDGV.Columns.Count; i++)
+                ProtocolDGV.Columns[i].Visible = false;
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            Configurator.SetAllHandlers(Handlers);
         }
     }
 }
