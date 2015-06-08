@@ -1,0 +1,27 @@
+version: 1.1.{build}
+skip_tags: true
+configuration: Release
+platform: Any CPU
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
+before_build:
+- nuget restore
+build:
+  project: ProtocolHelper.sln
+  verbosity: minimal
+after_build:
+- 7z a ProtocolHelper.zip %APPVEYOR_BUILD_FOLDER%\ProtocolHandler\bin\Release\*.exe  %APPVEYOR_BUILD_FOLDER%\ProtocolHandler\bin\Release\*.dll  %APPVEYOR_BUILD_FOLDER%\ProtocolHandler\bin\Release\*.config  %APPVEYOR_BUILD_FOLDER%\ProtocolHandler\bin\Release\*.reg
+- appveyor PushArtifact ProtocolHelper.zip
+deploy:
+- provider: GitHub
+  tag: ph-auto-v$(appveyor_build_version)
+  release: Auto Build v$(appveyor_build_version)
+  description: This is an automated or "continuous integration" build. It will contain the latest functionality, but you're probably better off choosing a build labelled "Stable" or "Release" if you're not sure (and assuming one exists).
+  auth_token:
+    secure: TiraBCal61QdC9QdLx1Vky57vpTRBN8DqF/k22sXVvVKBoKPREkFmpc4zivnV1gv
+  artifact: ProtocolHelper.zip
+  prerelease: true
