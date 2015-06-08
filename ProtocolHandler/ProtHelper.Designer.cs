@@ -39,7 +39,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 20);
+            this.label1.Location = new System.Drawing.Point(13, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(187, 21);
@@ -48,18 +48,20 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 57);
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Location = new System.Drawing.Point(13, 42);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(601, 280);
+            this.label2.Size = new System.Drawing.Size(652, 300);
             this.label2.TabIndex = 1;
             this.label2.Text = resources.GetString("label2.Text");
             // 
             // QuitButton
             // 
+            this.QuitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.QuitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.QuitButton.Location = new System.Drawing.Point(533, 340);
+            this.QuitButton.Location = new System.Drawing.Point(533, 358);
             this.QuitButton.Name = "QuitButton";
             this.QuitButton.Size = new System.Drawing.Size(137, 54);
             this.QuitButton.TabIndex = 2;
@@ -69,8 +71,9 @@
             // 
             // ShowProtsButton
             // 
+            this.ShowProtsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ShowProtsButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.ShowProtsButton.Location = new System.Drawing.Point(533, 280);
+            this.ShowProtsButton.Location = new System.Drawing.Point(390, 358);
             this.ShowProtsButton.Name = "ShowProtsButton";
             this.ShowProtsButton.Size = new System.Drawing.Size(137, 54);
             this.ShowProtsButton.TabIndex = 3;
@@ -84,7 +87,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.QuitButton;
-            this.ClientSize = new System.Drawing.Size(682, 406);
+            this.ClientSize = new System.Drawing.Size(682, 424);
             this.Controls.Add(this.ShowProtsButton);
             this.Controls.Add(this.QuitButton);
             this.Controls.Add(this.label2);

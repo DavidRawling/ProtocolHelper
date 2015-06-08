@@ -118,15 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label2.Text" xml:space="preserve">
-    <value>Configure your URL types in the app.config file.  There are three parts to a setting - the
-custom protocol, the application path and the "true" protocol.
+    <value>Configure your URL types in the app.config file.  There are three parts to a setting - the custom
+protocol (stored as name), the path to the real application (application) and the "true"
+protocol (protocol). Note that the custom protocol MUST be lower case.
 
 These settings are stored in the form:
-  CustomProtocol=Application Path,Protocol
+  &lt;Handler name="CustomProtocol", application="Application" protocol="Real Protocol" /&gt;
 
 For example, to handle URIs with a new protocol called "cisco" you might define a setting
 as shown:
-  cisco=C:\Program Files\PuTTY\putty.exe,ssh
+  &lt;Handler name="cisco", application="C:\Program Files\PuTTY\putty.exe" protocol="ssh" /&gt;
 
 Calling this application with the command line
   cisco://10.1.4.54
